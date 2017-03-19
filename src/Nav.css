@@ -1,0 +1,9 @@
+nav ul a
+{
+    font-size: inherit;    
+}
+a:hover, a:focus
+{
+    color: none;
+    text-decoration: none;
+}

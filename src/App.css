@@ -22,3 +22,30 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+#video-preview
+{
+  margin: 0 auto;
+  width: 500px;
+  margin-left: 20px;
+}
+.row
+{
+  margin: 0 auto;
+  position: absolute;
+  right:500px; top:92px; left:0; bottom:0;
+}
+.content
+{
+  position:absolute;
+  right:0; top:92px; bottom: 0;
+  width: 500px;
+}
+#yt-thumb
+{
+  display: inline;
+}
+.verticalLine {
+  border-left: thick solid #bfbfbf;
+  height: 100%;
+}

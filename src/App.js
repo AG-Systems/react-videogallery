@@ -1,37 +1,48 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-
+    
 let yturl = "";
-
+var ytdesc = "";
+var ytitle = "";
 var Preview = React.createClass({
     render() {
       return (
-        <div id="video-preview">
-          <iframe width="420" height="315" src={yturl} hidden={yturl.length === 0}> </iframe>
-        </div>
+          <div id="video-preview">
+            <iframe width="420" height="315" src={yturl}> </iframe>
+            <h3>{ytitle}</h3>
+            <h5>{ytdesc}</h5>          
+          </div>
       )
     }
   });
 
 
 var List = React.createClass({
-vidpreview: function(url)
+vidpreview: function(url,title,desc)
 {
-    yturl = url;
+    var autoplay = "?autoplay=1";
+    yturl = url + "";
+    ytdesc = desc;
+    ytitle = title;
     this.forceUpdate()
 },
     render() {
       return (
+        <div>
         <div className="row">
           {this.props.list.map( video =>
             <div className="col-xs-6 col-md-3">
-              <a href="" className="thumbnail" onMouseOver={() => this.vidpreview(video.yt)}>
-                <img src={video.thumbnail}/>
+              <a href="" className="thumbnail" onMouseOver={() => this.vidpreview(video.yt,video.title, video.desc)}>
+                <img src={video.thumbnail} id="yt-thumb"/>
               </a>
+                    <h4>{video.title} </h4>
             </div>
           )}
-          <Preview vid={yturl} />
+          </div>
+            <div className="content">
+              <Preview vid={yturl} />
+            </div>
         </div>
       )
     }
@@ -39,22 +50,46 @@ vidpreview: function(url)
 
 class App extends Component {
   render() {
-    let video = {
-          "videos": [
+  var video = [
             {
               "title": "Video1",
-              "yt": "https://www.youtube.com/embed/wD0jwTyf6t8?autoplay=1",
+              "yt": "https://www.youtube.com/embed/wD0jwTyf6t8",
+              "desc": "The bmw 330ci is a great car",
               "thumbnail": "https://i.ytimg.com/vi/wD0jwTyf6t8/maxresdefault.jpg",
             },
             {
               "title": "Video2",
-              "yt": "https://www.youtube.com/embed/Lb4IcGF5iTQ?autoplay=1",
+              "yt": "https://www.youtube.com/embed/Lb4IcGF5iTQ",
+              "desc": "Mark Zuckerberg talks about how he built his success",
               "thumbnail": "https://i.ytimg.com/vi/Lb4IcGF5iTQ/maxresdefault.jpg"
+            },
+            {
+              "title": "Reflex gaming",
+              "yt": "https://www.youtube.com/embed/Khf-kI7j9Eo",
+              "desc": "A quick little preview",
+              "thumbnail": "https://i.ytimg.com/vi/Khf-kI7j9Eo/maxresdefault.jpg"              
+            },
+            {
+              "title": "Adam LZ x Drifting: My Story",
+              "yt": "https://www.youtube.com/embed/LhfqBU8Hw_w",
+              "desc": "The story behind going from BMX to drifting",
+              "thumbnail": "https://i.ytimg.com/vi/LhfqBU8Hw_w/maxresdefault.jpg"
+            },
+            {
+              "title": "2017 Nissan GTR",
+              "yt": "https://www.youtube.com/embed/QeviPeovW2U",
+              "desc": "Nissan GTR",
+              "thumbnail": "https://i.ytimg.com/vi/QeviPeovW2U/maxresdefault.jpg"
+            },
+            {
+              "title": "Music Video",
+              "yt": "https://www.youtube.com/embed/c2w06WoWoR0",
+              "desc": "Some rap video",
+              "thumbnail": "https://i.ytimg.com/vi/c2w06WoWoR0/maxresdefault.jpg"
             }
           ]
-        }
     return (
-        <List list={video.videos} />
+        <List list={video} />
     );
   }
 }
