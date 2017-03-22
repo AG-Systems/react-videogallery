@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 // import logo from './logo.svg';
 import './App.css';
+import videolist from './video.json';
 
 let yturl = "";
 var ytdesc = "";
@@ -50,52 +51,8 @@ vidpreview: function(url,title,desc)
 
 class App extends Component {
   render() {
-  var video = [
-            {
-              "title": "Video1",
-              "yt": "https://www.youtube.com/embed/wD0jwTyf6t8",
-              "desc": "The bmw 330ci is a great car",
-              "thumbnail": "https://i.ytimg.com/vi/wD0jwTyf6t8/maxresdefault.jpg",
-              "id": 1,
-            },
-            {
-              "title": "Video2",
-              "yt": "https://www.youtube.com/embed/Lb4IcGF5iTQ",
-              "desc": "Mark Zuckerberg talks about how he built his success",
-              "thumbnail": "https://i.ytimg.com/vi/Lb4IcGF5iTQ/maxresdefault.jpg",
-              "id": 2,
-            },
-            {
-              "title": "Reflex gaming",
-              "yt": "https://www.youtube.com/embed/Khf-kI7j9Eo",
-              "desc": "A quick little preview",
-              "thumbnail": "https://i.ytimg.com/vi/Khf-kI7j9Eo/maxresdefault.jpg",
-              "id": 3,
-            },
-            {
-              "title": "Adam LZ x Drifting: My Story",
-              "yt": "https://www.youtube.com/embed/LhfqBU8Hw_w",
-              "desc": "The story behind going from BMX to drifting",
-              "thumbnail": "https://i.ytimg.com/vi/LhfqBU8Hw_w/maxresdefault.jpg",
-              "id": 4,
-            },
-            {
-              "title": "2017 Nissan GTR",
-              "yt": "https://www.youtube.com/embed/QeviPeovW2U",
-              "desc": "Nissan GTR",
-              "thumbnail": "https://i.ytimg.com/vi/QeviPeovW2U/maxresdefault.jpg",
-              "id": 5,
-            },
-            {
-              "title": "Music Video",
-              "yt": "https://www.youtube.com/embed/c2w06WoWoR0",
-              "desc": "Some rap video",
-              "thumbnail": "https://i.ytimg.com/vi/c2w06WoWoR0/maxresdefault.jpg",
-              "id": 6,
-            }
-          ]
     return (
-        <List list={video} />
+        <List list={videolist} />
     );
   }
 }
