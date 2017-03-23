@@ -34,7 +34,7 @@ vidpreview: function(url,title,desc)
         <div className="row">
           {this.props.list.map( video =>
             <div className="col-xs-6 col-md-3" key={video.id}>
-              <a href="" className="thumbnail" onMouseOver={() => this.vidpreview(video.yt,video.title, video.desc)}>
+              <a href={'/video/' + video.id} className="thumbnail" onMouseOver={() => this.vidpreview(video.yt,video.title, video.desc)}>
                 <img src={video.thumbnail} id="yt-thumb" alt={video.desc}/>
               </a>
                     <h4>{video.title} </h4>
